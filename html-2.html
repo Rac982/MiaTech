@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="wrapper">
+        <div class="container">
+            <div class="navbar-menu">
+                <div class="navbar-menu-item">
+                    <a href="#">Pricing</a>
+                </div>
+                <div class="navbar-menu-item">
+                    <a href="#">About</a>
+                </div>
+                <div class="navbar-menu-item">
+                    <a href="#">Blog</a>
+                </div>
+                <div class="navbar-menu-item">
+                    <a href="#">Contacts</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="wrapper">
+        <div class="container">
+            <div class="header-content">
+                <h1>HTML form</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus qui aliquid quibusdam.</p>
+                <div class="header-content-left-cta">
+                    <button class="btn btn-primary">Request Demo</button>
+                    <button class="btn btn-inverse">Explore Product</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="wrapper">
+        <div class="container">
+            <div class="article-preview">
+                <article>
+                    <h3>Attributes, elements and types</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam officiis porro vero, assumenda amet nobis iusto dicta voluptas dolorem delectus iste accusantium saepe voluptate officia. Perferendis natus voluptatem sunt totam?</p>
+                </article>
+                <img src="https://media.istockphoto.com/id/885460912/photo/burlington-vermont-usa.jpg?s=612x612&w=0&k=20&c=BaSwiMmUjlxP2w1hQYBU8sXBS3ursSsN_6v4a4t6Mis=" alt="article-image">
+            </div>
+            <div class="simple-paragraph">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus soluta nesciunt numquam vel placeat nam quaerat, nostrum laudantium repellendus quod tempora, facere unde. Reiciendis dolores itaque aut quis aliquid possimus.</p>
+            </div>
+            <div class="contact-form">
+                <h3>HTM form</h3>
+                <form action="/action_page.php" method="post">
+                    <fieldset>
+                        <label for="name">Nome:</label><br>
+                        <input type="text" id="name" name="name" required /><br><br>
+                        <label for="surname">Cognome:</label><br>
+                        <input type="text" id="surname" name="surname" required /><br><br>
+                        <label for="male">Uomo</label>
+                        <input type="radio" id="male" name="options" value="option1" required />
+                        <label for="female">Donna</label>
+                        <input type="radio" id="female" name="options" value="option2" required /><br><br>
+                        <label for="birth">Data di nascita</label>
+                        <input type="date" id="birth" required />
+                        <h3>Nazione di appertenenza</h3>
+                        <select name="nationality">
+                            <option value="italia" selected>Italia</option>
+                            <option value="francia">Francia</option>
+                            <option value="spagna">Spagna</option>
+                            <option value="germania">Germania</option>
+                        </select><br>
+                    </fieldset>
+                    <br>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" required /><br><br>
+                    <h3>Oggetto del messaggio</h3>
+                    <textarea name="message" rows="10" cols="30" placeholder="Inserisci qui il tuo messaggio"></textarea><br><br>
+                    <input type="checkbox" id="terms" required />
+                    <label for="terms">Ho letto e accetto i <a href="#">termini e condizioni</a> di questo sito</label><br><br>
+                    <input type="checkbox" id="privacy" required />
+                    <label for="privacy">Ho letto e accetto l'<a href="#">informativa sulla privacy</a></label><br><br>
+                    <input type="submit" value="Invia">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
