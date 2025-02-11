@@ -1,0 +1,23 @@
+:root {
+    /*Wiewport*/
+    --container-max-width: 72rem;
+    /*Body*/
+    --body-color: #52525a;
+    --body-line-height: 1.5rem;
+    --body-font-weight: 400;
+    --body-font-size: 1rem;
+    /*Colors*/
+    --primary-color: #3abab4;
+    --primary-hover-color: #4fd1c5;
+    --text-gray-color: #52525a;
+    --text-opacity-color: #1d1d20;
+    --border-opacity: #d4d4d8;
+    --dark-bg: #212832;
+    --bg-opacity: 0.5;
+    /*Spacing*/
+    --gap-4: 30px;
+    /*Shadows*/
+    --pr-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    --bx-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --bx-shadow-xs: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}

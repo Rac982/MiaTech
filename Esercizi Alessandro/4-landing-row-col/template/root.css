@@ -1,0 +1,14 @@
+:root {
+    /* Sizes */
+    --global-font-size: 16px;
+    --global-container-max-w: 1320px;
+    --global-base-gap: 0.5rem; /* 8px */
+    --global-base-margin: 0.5rem; /* 8px */
+    --global-base-padding: 0.5rem; /* 8px */
+    /* Columns */
+    --global-column-count: 12;
+    /* Colors */
+    --color-primary: #fa7e65;
+    --color-secondary: #252525;
+    --bg-base-gradient: linear-gradient(90deg, #fa7e64 10%, #ebab28 94%);
+}

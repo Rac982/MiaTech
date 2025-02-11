@@ -1,0 +1,459 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+html, body {
+    font-size: var(--global-font-size);
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 11rem;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 0.85rem;
+}
+
+h6 {
+    font-size: 0.75rem;
+}
+
+li, dt, dd {
+    padding-top: 0.5rem;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .container {
+    width: 100%;
+    max-width: var(--global-container-max-w);
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .container .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapper .container .row .col-1 {
+    width: calc((100% / var(--global-column-count)) * 1);
+}
+
+.wrapper .container .row .col-2 {
+    width: calc((100% / var(--global-column-count)) * 2);
+}
+
+.wrapper .container .row .col-3 {
+    width: calc((100% / var(--global-column-count)) * 3);
+}
+
+.wrapper .container .row .col-4 {
+    width: calc((100% / var(--global-column-count)) * 4);
+}
+
+.wrapper .container .row .col-5 {
+    width: calc((100% / var(--global-column-count)) * 5);
+}
+
+.wrapper .container .row .col-6 {
+    width: calc((100% / var(--global-column-count)) * 6);
+}
+
+.wrapper .container .row .col-7 {
+    width: calc((100% / var(--global-column-count)) * 7);
+}
+
+.wrapper .container .row .col-8 {
+    width: calc((100% / var(--global-column-count)) * 8);
+}
+
+.wrapper .container .row .col-9 {
+    width: calc((100% / var(--global-column-count)) * 9);
+}
+
+.wrapper .container .row .col-10 {
+    width: calc((100% / var(--global-column-count)) * 10);
+}
+
+.wrapper .container .row .col-11 {
+    width: calc((100% / var(--global-column-count)) * 11);
+}
+
+.wrapper .container .row .col-12 {
+    width: calc((100% / var(--global-column-count)) * 12);
+}
+
+.wrapper .container .row .offset-1 {
+    margin-left: calc((100% / var(--global-column-count)) * 1);
+}
+
+.wrapper .container .row .offset-2 {
+    margin-left: calc((100% / var(--global-column-count)) * 2);
+}
+
+.wrapper .container .row .offset-3 {
+    margin-left: calc((100% / var(--global-column-count)) * 3);
+}
+
+.wrapper .container .row .offset-4 {
+    margin-left: calc((100% / var(--global-column-count)) * 4);
+}
+
+.wrapper .container .row .offset-5 {
+    margin-left: calc((100% / var(--global-column-count)) * 5);
+}
+
+.wrapper .container .row .offset-6 {
+    margin-left: calc((100% / var(--global-column-count)) * 6);
+}
+
+.wrapper .container .row .offset-7 {
+    margin-left: calc((100% / var(--global-column-count)) * 7);
+}
+
+.wrapper .container .row .offset-8 {
+    margin-left: calc((100% / var(--global-column-count)) * 8);
+}
+
+.wrapper .container .row .offset-9 {
+    margin-left: calc((100% / var(--global-column-count)) * 9);
+}
+
+.wrapper .container .row .offset-10 {
+    margin-left: calc((100% / var(--global-column-count)) * 10);
+}
+
+.wrapper .container .row .offset-11 {
+    margin-left: calc((100% / var(--global-column-count)) * 11);
+}
+
+.wrapper .container .row .offset-12 {
+    margin-left: calc((100% / var(--global-column-count)) * 12);
+}
+
+/* Utilities */
+.w-full {
+    width: 100%;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.w-auto {
+    width: auto;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.gap-1 {
+    gap: calc(var(--global-base-gap) * 1);
+}
+
+.gap-2 {
+    gap: calc(var(--global-base-gap) * 2);
+}
+
+.gap-3 {
+    gap: calc(var(--global-base-gap) * 3);
+}
+
+.gap-4 {
+    gap: calc(var(--global-base-gap) * 4);
+}
+
+.p-1 {
+    padding: calc(var(--global-base-padding) * 1);
+}
+
+.p-2 {
+    padding: calc(var(--global-base-padding) * 2);
+}
+
+.p-3 {
+    padding: calc(var(--global-base-padding) * 3);
+}
+
+.p-4 {
+    padding: calc(var(--global-base-padding) * 4);
+}
+
+.py-3 {
+    padding-top: calc(var(--global-base-padding) * 3);
+    padding-bottom: calc(var(--global-base-padding) * 3);
+}
+.py-4 {
+    padding-top: calc(var(--global-base-padding) * 4);
+    padding-bottom: calc(var(--global-base-padding) * 4);
+}
+.py-5 {
+    padding-top: calc(var(--global-base-padding) * 5);
+    padding-bottom: calc(var(--global-base-padding) * 5);
+}
+.py-6 {
+    padding-top: calc(var(--global-base-padding) * 6);
+    padding-bottom: calc(var(--global-base-padding) * 6);
+}
+
+.py-13 {
+    padding-top: calc(var(--global-base-padding) * 13);
+    padding-bottom: calc(var(--global-base-padding) * 13);
+}
+
+.px-6 {
+    padding-left: calc(var(--global-base-padding) * 6);
+    padding-right: calc(var(--global-base-padding) * 6);
+}
+
+.m-1 {
+    margin: calc(var(--global-base-margin) * 1);
+}
+
+.m-2 {
+    margin: calc(var(--global-base-margin) * 2);
+}
+
+.m-3 {
+    margin: calc(var(--global-base-margin) * 3);
+}
+
+.m-4 {
+    margin: calc(var(--global-base-margin) * 4);
+}
+
+.mt-1 {
+    margin-top: calc(var(--global-base-margin) * 1);
+}
+
+.mt-2 {
+    margin-top: calc(var(--global-base-margin) * 2);
+}
+
+.mt-3 {
+    margin-top: calc(var(--global-base-margin) * 3);
+}
+
+.mt-4 {
+    margin-top: calc(var(--global-base-margin) * 4);
+}
+
+.mt-5 {
+    margin-top: calc(var(--global-base-margin) * 5);
+}
+
+.mr-1 {
+    margin-right: calc(var(--global-base-margin) * 1);
+}
+
+.mr-2 {
+    margin-right: calc(var(--global-base-margin) * 2);
+}
+
+.my-4 {
+    margin-top: calc(var(--global-base-margin) * 4);
+    margin-bottom: calc(var(--global-base-margin) * 4);
+}
+
+.text-white {
+    color: white;
+}
+
+.scale-6 {
+    transform: scale(0.6);
+}
+
+.scale-8 {
+    transform: scale(0.8);
+}
+
+/* Components */
+
+.btn {
+    text-align: center;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    border-radius: 9999px;
+    transition: all ease-in-out 0.25s;
+    opacity: 1;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.btn.btn-primary {
+    background-color: var(--color-primary);
+}
+
+.btn.btn-primary:hover {
+    color: var(--color-secondary);
+}
+
+.btn.btn-secondary {
+    background-color: var(--color-secondary);
+}
+
+.label {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-weight: 500;
+    border: none;
+    font-size: 0.75rem;
+}
+
+.label.label-primary {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.label.label-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.bg-primary-gradient {
+    background: var(--bg-base-gradient);
+}
+
+.price-card__title {
+    width: 100%;
+    background: var(--bg-base-gradient);
+    padding: 1.9rem 0 3.1rem;
+}
+
+.price-card__box {
+    width: 84%;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 2px 5px 1px #9f9f9f;
+    top: -1.9rem;
+    padding: 1.9rem 1.3rem 0;
+}
+
+h4.price-card__main-title-money {
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.price-card__main-title::after {
+    content: "";
+    position: absolute;
+    width: 2.9rem;
+    height: 0.4rem;
+    background-color: var(--color-primary);
+    left: 0;
+    right: 0;
+    top: 5.9rem;
+    border-radius: 100px;
+    margin: 0 auto;
+}
+
+.price-card__btn {
+    position: relative;
+    bottom: -1.1rem;
+}

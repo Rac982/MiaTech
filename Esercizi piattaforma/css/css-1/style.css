@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+h1 {
+    color: blueviolet;
+}
+
+h2 {
+    color: rgb(226, 43, 186);
+}
+
+h3 {
+    color: rgb(92, 43, 226);
+}
+
+h4 {
+    color: rgb(49, 43, 226);
+}
+
+h5 {
+    color: rgb(43, 153, 226);
+}
+
+h6 {
+    color: rgb(43, 214, 226);
+}
+
+p {
+    color: rgb(43, 226, 189);
+    text-align: right;
+}
+
+#bg-dark {
+    background-color: black;
+}
+
+.font-30 {
+    font-size: 30px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.17rem;
+    border-width: 1px;
+    border-radius: 0.35rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background-color:rgb(218, 31, 190);
+}
+
+.text-white {
+    color: white;
+}
+
+#rgb {
+    color: rgb(206, 36, 36);
+}
+
+#hex {
+    color: #ce2424;
+}
+
+#rgba {
+    color: rgba(206, 36, 36, 0.977);
+}
+
+#color-name {
+    color: red;
+}
+
+span {
+    color: violet !important;
+}
+
+.specificity {
+    color: green;
+}
+
+#specificity-color {
+    color: red;
+}
+
+.color-alignment {
+    color: rgb(255, 191, 0);
+    text-align: left;
+}
+
+div > h2 {
+    color: rgb(255, 191, 0);
+}
+
+li:last-of-type {
+    background-color: palevioletred;
+}

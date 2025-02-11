@@ -1,0 +1,14 @@
+:root {
+    /*Wiewport*/
+    --container-max-width: 1440px;
+    /*Body*/
+    --body-color: #69707a;
+    --body-line-height: 1.5rem;
+    --body-font-weight: 400;
+    --body-font-size: 1rem;
+    /*Colors*/
+    --primary-color: #00ba94;
+    --dark-bg: #212832;
+    /*Spacing*/
+    --gap-4: 30px;
+}
