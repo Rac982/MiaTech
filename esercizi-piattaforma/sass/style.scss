@@ -1,0 +1,117 @@
+@use 'variables' as *;
+@use "sass:list";
+
+$noHover: false;
+
+@function px-to-em($size, $base-size: 16px) {
+    @return calc($size / $base-size) * 1em;
+}
+
+// Mixin per la Navbar chiara
+@mixin light-navbar {
+    background-color: #ffffff;
+    color: $menu-text-color;
+
+    a {
+        color: $menu-text-color;
+
+        @if $noHover == false {
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+// Mixin per la Navbar scura
+@mixin dark-navbar {
+    background-color: #000000;
+    color: #ffffff;
+
+    a {
+        color: #ffffff;
+
+        @if $noHover == false {
+            &:hover {
+                color: #ecdf23;
+            }
+        }
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1320px;
+    display: flex;
+    gap: 10px;
+}
+
+// Navbar - Tema Chiaro di Default
+nav {
+    @include light-navbar;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+
+    .nav-item {
+        padding: 10px;
+        font-size: px-to-em(18px, 16px);
+    }
+}
+
+// Navbar - Tema Scuro attivato con `.dark-mode`
+.dark-mode {
+    nav {
+        @include dark-navbar;
+    }
+}
+
+#contact {
+    @extend .nav-item;
+    background-color: $menu-bg-color;
+    border: $menu-border;
+}
+
+.col-4 {
+    width: calc(100% / 3);
+}
+
+$backgrounds: (#f0f0f0, #333333);
+
+@for $i from 1 through 2 {
+    .col-#{$i * 4} {
+        background-color: list.nth($backgrounds, $i);
+        color: if($i == 1, #000000, #ffffff); // Testo nero su sfondo chiaro, bianco su sfondo scuro
+        padding: 20px;
+    }
+}
+
+// Lista di colori
+$colors: #ff00ff, #00ff00, #0000ff, #ffa500;
+
+// Contatore manuale
+$i: 1;
+
+// Generiamo le classi dinamiche per i colori del testo
+@each $color in $colors {
+    .color-#{$i} {
+        color: $color;
+    }
+    $i: $i + 1; // Incrementa il contatore per la prossima classe
+}
