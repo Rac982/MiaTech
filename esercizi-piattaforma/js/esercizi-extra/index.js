@@ -128,7 +128,7 @@ console.log(persona.saluta());
 Se un numero è multiplo di 3, stampa "Fizz"
 Se è multiplo di 5, stampa "Buzz"
 Se è multiplo di entrambi, stampa "FizzBuzz" */
-for (let i = 1; i < 100, i++) {
+for (let i = 1; i < 100; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
         console.log("FizzBuzz");
     } else if (i % 3 === 0) {
