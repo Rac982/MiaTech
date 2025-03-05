@@ -185,6 +185,8 @@ function createCounter() {
     }
 }
 
+//METODI DEGLI OGGETTI
+
 //Object.keys()
 let student = {
     name: "Marco",
@@ -199,6 +201,8 @@ console.log(Object.values(student))
 
 //Object.entries()
 console.log(Object.entries(student))
+
+//METODI DEGLI ARRAY
 
 //forEach & map
 let numbers = [1, 2, 3, 4, 5];
@@ -224,7 +228,7 @@ let failedStudent = students.find(student => student.grade < 60); // Usa find pe
 console.log("Studenti promossi:", passedStudents);
 console.log("Primo studente bocciato:", failedStudent);
 
-// reduce & sort
+// reduce & sort (metodo distruttivo, come anche splice: distrugge l'array originale)
 let expenses = [5.30, 7.20, 10.75, 3.10]
 let sum = expenses.reduce (function(total, amount){
     return total + amount
