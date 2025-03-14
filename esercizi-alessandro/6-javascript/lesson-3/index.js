@@ -1,3 +1,5 @@
+// LAVORO SULLE CALL BACK
+
 /**
  * Scriviamo una funzione che ci permette di effettuare il login.
  * L'utente può inserire email e password che se sono corretti permettono di restituire
