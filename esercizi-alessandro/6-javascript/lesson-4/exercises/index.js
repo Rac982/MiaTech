@@ -19,6 +19,7 @@ Obiettivo:
 
 const $garden = document.querySelector("#garden");
 const $scatterBtn = document.querySelector("#scatter");
+const $resetBtn = document.querySelector("#reset");
 
 // Funzione per creare un fiore
 function createFlower(x,y) {
@@ -64,6 +65,11 @@ const manageListner = () => {
             flower.style.top = `${newY}px`;
             flower.style.transform = `rotate(${Math.random() * 360}deg)`;
         })
+    });
+
+    // Reset giardino
+    $resetBtn.addEventListener("click", () => {
+        $garden.innerHTML = "";
     })
 }
 
