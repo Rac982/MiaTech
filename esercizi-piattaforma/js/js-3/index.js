@@ -141,7 +141,39 @@ let shopping = JSON.parse(shoppingJson);
 
 console.log(shopping);
 
-// Manipolazione di dati JSON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Manipolazione di dati JSON
+let peopleJson = `[
+    {
+      "name": "Mario",
+      "surname": "Rossi",
+      "age": 30,
+      "email": "mario.rossi@example.com"
+    },
+    {
+      "name": "Luca",
+      "surname": "Bianchi",
+      "age": 25,
+      "email": "luca.bianchi@example.com"
+    },
+    {
+      "name": "Giulia",
+      "surname": "Verdi",
+      "age": 28,
+      "email": "giulia.verdi@example.com"
+    }
+]`;
+  
+let people = JSON.parse(peopleJson);
+
+console.log(people);
+
+people.push({name: "Marco", surname: "Ultimo", age: 43, email: "marco.ultimo@example.com"});
+
+console.log(people)
+
+let peopleJsonCopy = JSON.stringify(people);
+
+console.log(peopleJsonCopy);
 
 // Stringa semplice con template literals
 let nome = "Giulia";
@@ -226,3 +258,68 @@ console.table(arrayObj);
 console.group("Messaggi di controllo");
 console.log("Eseguendo lo script...");
 console.warn("Attenzione: alcuni prodotti potrebbero non essere disponibili.");
+
+// Utilizzare setTimeout
+console.log("Inizio conteggio setTimeout");
+setTimeout(function() {
+    console.log("Questo messaggio compare dopo 3 secondi");
+}, 3000);
+
+// Utilizzare setInterval & Interrompere setInterval con clearInterval
+console.log("Inizio conteggio setInterval");
+
+let timer = setInterval(function() {
+    console.log("Questo messaggio compare ogni 2 secondi");
+}, 2000);
+
+setTimeout(function() {
+    clearInterval(timer);
+    console.log("Timer fermato dopo 6 secondi");
+}, 6000);
+
+// Gestione di un errore semplice
+function div(a,b) {
+    try {
+        if (b === 0) {
+            throw new Error("Errore: impossibile dividere per zero!");
+        }
+        console.log(`Risultato: ${a / b}`);
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+div(10, 0);
+
+// Gestione di più tipi di errori
+function stringa(input) {
+    try {
+        if (typeof input !== "string") {
+            throw new Error("L'imput non è una stringa");
+        } else if (input.length < 10) {
+            throw new Error("La stinga ha meno di 10 caratteri");
+        }
+        console.log(input);
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+stringa(1234);
+
+// Uso di finally per eseguire codice indipendentemente dal risultato
+function divisione(a,b) {
+    try {
+        if (b === 0) {
+            throw new Error("Errore: impossibile dividere per zero!");
+        }
+        console.log(`Risultato: ${a / b}`);
+    } catch (error) {
+        console.error(error.message);
+    } finally {
+        console.log("Operazione completata");
+    }
+}
+
+divisione(10, 2);
+divisione(10, 0);
