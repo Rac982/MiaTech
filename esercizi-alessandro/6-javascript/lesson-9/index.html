@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="custom-select" id="my-select" data-value="Red"></div>
+    <div class="custom-select" id="categories-select" data-value="Tech"></div>
+
+    <script src="./index.js"></script>
+    <script>
+        customSelect({
+            selector: "#categories-select",
+            items: [
+                {
+                    label: "Audio",
+                    value: "Audio",
+                },
+                {
+                    label: "Tech",
+                    value: "Tech",
+                },
+                {
+                    label: "Laptop",
+                    value: "Laptop",
+                },
+                {
+                    label: "Phone",
+                    value: "Phone",
+                },
+            ]
+        }).init();
+
+        document.querySelector("#categories-select").addEventListener("change", (event) => {
+            console.log(event.detail);
+        });
+
+        customSelect({
+            selector: "#my-select",
+            items: [
+                {
+                    label: "Red",
+                    value: "Red",
+                },
+                {
+                    label: "Blue",
+                    value: "Blue",
+                },
+                {
+                    label: "Green",
+                    value: "Green",
+                },
+                {
+                    label: "Yellow",
+                    value: "Yellow",
+                },
+            ]
+        }).init();
+
+        document.querySelector("#my-select").addEventListener("change", (event) => {
+            console.log(event.detail);
+        });
+    </script>
+</body>
+</html>

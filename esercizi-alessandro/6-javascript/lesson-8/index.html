@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="col-lg-8">
+            <select class="price-sort" id="sort">
+                <option value="price-ASC">Price Asc</option>
+                <option value="price-DESC">Price Desc</option>
+              </select>
+            <div id="product-card">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h2>Cart details</h2>
+            <div id="product-card-cart">                
+            </div>
+            <div class="cart-footer">
+                <p id="total-price">Totale: €0.00</p>
+                <button id="clear-cart">Svuota Carrello</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./index.mjs"></script>
+</body>
+</html>
