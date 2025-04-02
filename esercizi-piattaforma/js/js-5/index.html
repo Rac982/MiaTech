@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam officiis eius ut quos et fugiat, nulla, quisquam nisi provident amet tempore accusantium placeat repellat. Inventore quasi fugiat quaerat tenetur dolores?</p>
+    <button id="save">Save</button><br><br>
+    <h2>Form con Submit</h2>
+    <form name="myForm" onsubmit="return validateForm()" method="post" action="#">
+        <label for="fname">Nome:</label>
+        <input type="text" name="fname" id="fname"><br><br>
+        <label for="lname">Cognome:</label>
+        <input type="text" name="lname" id="lname"><br><br>
+        <input type="submit" value="Invia"><br><br>
+    </form>
+
+    <script>
+        // GESTIRE I COOKIES
+        // Funzione per impostare un cookie
+        function setCookie(name, value) {
+            const d = new Date();
+            d.setTime(d.getTime() + 24*60*60*1000);
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = name + "=" + value + "; " + expires + "; path=/";
+            console.log("Cookie impostato:", document.cookie);
+        }
+
+        // Funzione per recuperare un cookie
+        function getCookie(name) {
+            const value = document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+            console.log("Cookie recuperato:", name + "=" + value);
+            return value;
+        }
+
+        // Funzione per cancellare un cookie
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            console.log("Cookie eliminato:", name);
+        }
+
+        setCookie("Mario", 82);
+        getCookie("Mario");
+        deleteCookie("Mario");
+
+        // UTILIZZARE IL LOCAL STORAGE
+        const myName = "Barbara";
+
+        localStorage.setItem("nome", myName);
+        console.log("Valore salvato in local storage:", localStorage.getItem("nome"));
+
+        localStorage.getItem("nome");
+        console.log("Dato recuperato in local storage:", localStorage.getItem("nome"));
+
+        localStorage.removeItem("nome");
+        console.log("Se null il dato in local storage è stato correttamente eliminato:", localStorage.getItem("nome"));
+
+        // UTILIZZARE IL SESSION STORAGE
+        const mySurname = "Bianchi";
+
+        sessionStorage.setItem("surname", mySurname);
+        console.log("Valore salvato in session storage:", sessionStorage.getItem("surname"));
+
+        sessionStorage.getItem("surname");
+        console.log("Dato recuperato in session storage:", sessionStorage.getItem("surname"));
+
+        sessionStorage.removeItem("surname");
+        console.log("Se null il dato in session storage è stato correttamente eliminato:", sessionStorage.getItem("surname"));
+
+        // UTILIZZARE LOCAL STORAGE E SESSION STORAGE INSIEME
+        const myPizza = "Margherita";
+        const myPasta = "Carbonara";
+
+        sessionStorage.setItem("pizza", myPizza);
+        localStorage.setItem("pasta", myPasta)
+        console.log("Valore salvato in session storage:", sessionStorage.getItem("pizza"));
+        console.log("Valore salvato in local storage:", localStorage.getItem("pasta"));
+
+        sessionStorage.getItem("pizza");
+        localStorage.getItem("pasta");
+        console.log("Dato recuperato in session storage:", sessionStorage.getItem("pizza"));
+        console.log("Dato recuperato in local storage:", localStorage.getItem("pasta"));
+
+        sessionStorage.removeItem("pizza");
+        localStorage.removeItem("pasta");
+        console.log("Se null il dato in session storage è stato correttamente eliminato:", sessionStorage.getItem("pizza"));
+        console.log("Se null il dato in local storage è stato correttamente eliminato:", localStorage.getItem("pasta"));
+
+        // OGGETTO DOCUMENT
+        console.log("Il DOM di questa pagina è:", document);
+
+        // getElementById
+        const $primoParagrafo = document.getElementById("p-1");
+
+        // querySelector
+        const $saveBtn = document.querySelector("#save");
+
+        // Modifica il testo di un paragrafo
+        $primoParagrafo.innerText = "Testo del paragrafo modificato con innerText";
+
+        // Cambia lo stile
+        $primoParagrafo.style.backgroundColor = "yellow";
+        $primoParagrafo.style.fontSize = "28px";
+        
+        // Modifica l'HTML
+        $primoParagrafo.innerHTML = $primoParagrafo.innerHTML += `<br><button>Button</button>`;
+
+        // Crea una lista non ordinata con createElement()
+        const $ul = document.createElement("ul");
+        document.getElementById("p-1").insertAdjacentElement("afterend", $ul); // mette la lista subito dopo il paragrafo
+
+        // Crea i list items
+        function aggiungiElementiAllaLista() {
+            for (let i = 1; i <= 5; i++) {
+                const $newElementLI = document.createElement("li");
+                $newElementLI.innerText = `Elemento ${i} aggiunto dinamicamente`;
+                $ul.appendChild($newElementLI);
+            }
+        }
+
+        aggiungiElementiAllaLista();
+
+        // Submit
+        function validateForm() {
+            let x = document.forms.myForm.fname.value;
+            let y = document.forms.myForm.lname.value;
+            if (x === "" || y === "") {
+                alert("I campi devono essere tutti compilati");
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
