@@ -135,7 +135,7 @@ let brandsJson = JSON.stringify(brands);
 console.log(brandsJson);
 
 // Conversione di una stringa JSON in un oggetto
-let shoppingJson = `{"pasta":"rummo","cookies":"saiwa","coffee":"illy","tomato":"mutti","cereals":"zymil"}`;
+let shoppingJson = `{"pasta":"rummo","cookies":"saiwa","coffee":"illy","tomato":"mutti","milk":"zymil"}`;
 
 let shopping = JSON.parse(shoppingJson);
 
