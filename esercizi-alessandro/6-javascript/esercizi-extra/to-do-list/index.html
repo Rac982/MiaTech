@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📝 To-Do List</h1>
+  <div class="actions">
+    <div>
+      <input type="text" id="taskInput" placeholder="Aggiungi una nuova attività">
+      <button id="addTaskBtn">Aggiungi</button>
+    </div>
+    <div id="filters">
+      <button data-filter="all">Tutte</button>
+      <button data-filter="active">Attive</button>
+      <button data-filter="completed">Completate</button>
+    </div>
+  </div>
+  <table id="taskTable">
+    <thead id="taskHead">
+      <tr>
+        <th>↕️</th>
+        <th>✔️</th>
+        <th>Attività</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody id="taskBody">
+
+    </tbody>
+  </table>
+
+  <script src="./index.js"></script>
+</body>
+</html>

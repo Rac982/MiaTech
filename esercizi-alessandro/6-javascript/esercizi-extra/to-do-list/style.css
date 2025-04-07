@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* Impostazioni base */
+body {
+  font-family: 'Metrophobic', Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  margin: 2rem;
+}
+
+/* Titolo */
+h1 {
+  margin-bottom: 1rem;
+}
+
+/* Actions row */
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Input + Bottone */
+input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 600px;
+  margin-right: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Filtro */
+#filters {
+  margin-top: 1rem;
+}
+
+#filters button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  background-color: #b4b3b3;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#filters button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Tabella attività */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Colonne: larghezze fisse e allineamenti coerenti */
+th:nth-child(1), td:nth-child(1) {
+  width: 40px; /* drag handle */
+  text-align: center;
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 40px; /* checkbox */
+  text-align: center;
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: auto; /* attività */
+}
+
+th:nth-child(4), td:nth-child(4) {
+  width: 80px; /* azioni */
+  text-align: center;
+}
+
+/* Drag handle */
+.drag-handle {
+  cursor: grab;
+  font-size: 1.2rem;
+  user-select: none;
+  padding: 0.5rem;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Rimuove il cursore da tutta la riga */
+.draggable-row {
+  cursor: default;
+}
+
+/* Durante il trascinamento */
+.dragging {
+  opacity: 0.5;
+}
+
+/* Riga completata */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Bottone elimina */
+td button {
+  background-color: #dc3545;
+}
+
+td button:hover {
+  background-color: #a71d2a;
+}
