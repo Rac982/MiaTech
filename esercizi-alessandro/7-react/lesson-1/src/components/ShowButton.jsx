@@ -1,3 +1,5 @@
+import React from "react";
+
 const ShowButton = ({ isActive, activeLable, inactiveLable, onClick }) => {
     return(
         <button onClick={onClick}>
