@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                darkMode: 'class',
-                theme: {
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
                     colors: {
                         primary: '#9d8df1', // Palette custom
                         secondary: '#010101',
+                        accent: '#ff9800',
                         customGreen: '#00ff7f', // Modifica la configurazione: nuovo colore
-                        gray: colors.coolGray,
-                        blue: colors.lightBlue,
-                        red: colors.rose,
-                        pink: colors.fuchsia,
                     },
-                    extend: {
-                        spacing: { // Estensione delle dimensioni
-                            '128': '32rem',
-                            '144': '36rem',
-                            '200': '50rem',
-                        },
-                        borderRadius: {
-                            '4xl': '2rem',
-                        }
+                    spacing: { // Estensione delle dimensioni
+                        '128': '32rem',
+                        '144': '36rem',
+                        '200': '50rem',
                     },
-                    fontFamily: { // Tema personalizzato
-                        sans: ['Graphik', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    }
                 },
-                variants: {
-                    extend: {
-                        borderColor: ['focus-visible'],
-                        opacity: ['disabled'],
-                    }
+                fontFamily: { // Tema personalizzato
+                    sans: ['Graphik', 'sans-serif'],
+                    serif: ['Merriweather', 'serif'],
                 }
-            }
-        </script>
-        <style type="text/tailwindcss">
-            /* Stili riutilizzabili - card e pulsanti */
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        /* Stili riutilizzabili - card e pulsanti */
             @layer components {
                 .btn {
                     border: 1px solid black;
@@ -66,7 +54,7 @@
                 }
 
                 .card {
-                    @apply p-4 rounded-lg shadow-md bg-white dark:bg-gray-800;
+                    @apply p-4 rounded-lg shadow-md bg-white dark:text-white dark:bg-gray-800;
                 }
             }
 
@@ -77,119 +65,142 @@
                 }
             }
         </style>
-    </head>
+</head>
 
-    <body class="dark:bg-gray-900 dark:text-white transition-colors duration-300">
+<body class="dark:bg-gray-900 dark:text-white transition-colors duration-300">
 
-        <!-- Toggle dark mode -->
-        <div class="container mx-auto p-4">
-            <button id="darkModeToggle" class="btn mb-4">Dark Mode: <span id="darkModeStatus">Inactive</span></button>
+    <!-- Toggle dark mode -->
+    <div class="container mx-auto p-4">
+        <button id="darkModeToggle" class="btn mb-4">Dark Mode: <span id="darkModeStatus">Inactive</span></button>
+    </div>
+    <div class="card p-4">
+        <p>Test Dark Mode</p>
+    </div>
+
+    <!-- Condizionali: visibilità in base alla dimensione -->
+    <div class="container mx-auto p-4">
+        <p class="hidden md:block text-green-600">Visibile solo su schermi medi o più grandi</p>
+    </div>
+
+    <!-- Grid responsive -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        <div class="card">Colonna 1</div>
+        <div class="card">Colonna 2</div>
+        <div class="card">Colonna 3</div>
+    </div>
+
+    <!-- Responsive layout -->
+    <div class="p-4 bg-gray-100 dark:bg-gray-800">
+        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Titolo Responsive</h2>
+    </div>
+
+    <!-- Wrap -->
+    <div class="flex flex-wrap gap-4 p-4">
+        <div class="w-40 h-20 bg-primary text-white flex items-center justify-center">Box 1</div>
+        <div class="w-40 h-20 bg-secondary text-white flex items-center justify-center">Box 2</div>
+        <div class="w-40 h-20 bg-blue-500 text-white flex items-center justify-center">Box 3</div>
+        <div class="w-40 h-20 bg-red-500 text-white flex items-center justify-center">Box 4</div>
+    </div>
+
+    <!-- Align & Justify -->
+    <div class="flex items-center justify-center h-64 bg-gray-200">
+        <p class="text-center text-xl font-semibold">Centrato orizzontalmente e verticalmente</p>
+    </div>
+
+    <!-- Contenitore con 3 colonne affiancate -->
+    <div class="flex flex-row gap-4 p-4">
+        <div class="w-1/3 card">Colonna A</div>
+        <div class="w-1/3 card">Colonna B</div>
+        <div class="w-1/3 card">Colonna C</div>
+    </div>
+
+    <!-- Gerarchia stili -->
+    <div class="p-4">
+        <p class="text-base">Paragrafo base</p>
+        <p class="text-base font-bold">Paragrafo con bold</p>
+        <p class="text-base font-bold text-primary">Paragrafo con colore personalizzato</p>
+    </div>
+
+    <!-- Componente custom (badge) -->
+    <div class="p-4">
+        <span class="badge">Componente custom</span>
+    </div>
+
+    <!-- Form con stili disabled -->
+    <div class="p-4">
+        <input type="text" class="border p-2 mr-2" placeholder="Nome" disabled />
+        <button class="btn btn-disabled" disabled>Disabilitato</button>
+    </div>
+
+    <!-- Focus & active -->
+    <div class="p-4">
+        <input type="text" class="border p-2 focus:ring-2 focus:ring-blue-500 active:border-blue-700"
+            placeholder="Focus me" />
+    </div>
+
+    <!-- Hover -->
+    <div class="p-4 flex gap-4">
+        <button class="btn hover:bg-blue-700">Hover blu</button>
+        <button class="btn hover:bg-red-700">Hover rosso</button>
+    </div>
+
+    <!-- Colori di testo -->
+    <div class="p-4">
+        <h1 class="text-2xl text-primary font-bold">Titolo principale</h1>
+        <p class="text-secondary">Paragrafo in color secondary</p>
+        <a href="#" class="text-blue-600 underline">Link</a>
+    </div>
+
+    <!-- Sfondo e bordo -->
+    <div class="p-4">
+        <div class="bg-customGreen border border-primary p-4 rounded text-white">Box con sfondo personalizzato</div>
+    </div>
+
+    <!-- Container e margini -->
+    <div class="container mx-auto p-8 bg-gray-50 rounded shadow">
+        <h2 class="text-xl font-bold mb-2">Contenuto centrato</h2>
+        <p class="leading-relaxed text-gray-700">Container centrale con margini e padding per posizionare correttamente
+            il contenuto all'interno.</p>
+    </div>
+
+    <!-- Stili di testo -->
+    <div class="p-4">
+        <h1 class="text-3xl font-bold mb-2">Titolo</h1>
+        <p class="text-base leading-relaxed">Paragrafo con text-base & leading-relaxed.</p>
+        <ul class="list-disc pl-5">
+            <li>Elemento uno</li>
+            <li>Elemento due</li>
+        </ul>
+    </div>
+
+    <!-- Tema personalizzato -->
+    <div class="p-4">
+        <h2 class="text-xl font-bold mb-2">Confronto font:</h2>
+        <p class="mb-2">Font predefinito (senza classe): Lorem ipsum dolor sit amet.</p>
+        <p class="font-sans mb-2">Font personalizzato "Graphik" (class: font-sans): Lorem ipsum dolor sit amet.</p>
+        <p class="font-serif">Font personalizzato "Merriweather" (class: font-serif): Lorem ipsum dolor sit amet.</p>
+        <p class="mb-2">Font predefinito (senza classe): Lorem ipsum dolor sit amet.</p>
+        <h2 class="text-xl font-bold mb-2">Colori personalizzati:</h2>
+        <div class="bg-primary text-white p-4">
+            <p>Questo è un esempio con il colore primario personalizzato.</p>
         </div>
-
-        <!-- Condizionali: visibilità in base alla dimensione -->
-        <div class="container mx-auto p-4">
-            <p class="hidden md:block text-green-600">Visibile solo su schermi medi o più grandi</p>
+        <div class="bg-secondary text-white p-4 mt-4">
+            <p>Questo è un esempio con il colore secondario personalizzato.</p>
         </div>
-
-        <!-- Grid responsive -->
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-            <div class="card">Colonna 1</div>
-            <div class="card">Colonna 2</div>
-            <div class="card">Colonna 3</div>
+        <div class="bg-accent text-white p-4 mt-4">
+            <p>Questo è un esempio con il colore accentuato personalizzato.</p>
         </div>
+    </div>
 
-        <!-- Responsive layout -->
-        <div class="p-4 bg-gray-100 dark:bg-gray-800">
-            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Titolo Responsive</h2>
-        </div>
+    <!-- Script per dark mode toggle -->
+    <script>
+        const toggleDarkMode = () => {
+            document.body.classList.toggle("dark");
+            document.querySelector("#darkModeStatus").innerHTML = document.body.classList.contains("dark") ? "Active" : "Inactive";
+        };
+        document.querySelector("#darkModeToggle").addEventListener('click', toggleDarkMode);
+    </script>
 
-        <!-- Wrap -->
-        <div class="flex flex-wrap gap-4 p-4">
-            <div class="w-40 h-20 bg-primary text-white flex items-center justify-center">Box 1</div>
-            <div class="w-40 h-20 bg-secondary text-white flex items-center justify-center">Box 2</div>
-            <div class="w-40 h-20 bg-blue-500 text-white flex items-center justify-center">Box 3</div>
-            <div class="w-40 h-20 bg-red-500 text-white flex items-center justify-center">Box 4</div>
-        </div>
-
-        <!-- Align & Justify -->
-        <div class="flex items-center justify-center h-64 bg-gray-200">
-            <p class="text-center text-xl font-semibold">Centrato orizzontalmente e verticalmente</p>
-        </div>
-
-        <!-- Contenitore con 3 colonne affiancate -->
-        <div class="flex flex-row gap-4 p-4">
-            <div class="w-1/3 card">Colonna A</div>
-            <div class="w-1/3 card">Colonna B</div>
-            <div class="w-1/3 card">Colonna C</div>
-        </div>
-
-        <!-- Gerarchia stili -->
-        <div class="p-4">
-            <p class="text-base">Paragrafo base</p>
-            <p class="text-base font-bold">Paragrafo con bold</p>
-            <p class="text-base font-bold text-primary">Paragrafo con colore personalizzato</p>
-        </div>
-
-        <!-- Componente custom (badge) -->
-        <div class="p-4">
-            <span class="badge">Nuovo</span>
-        </div>
-
-        <!-- Form con stili disabled -->
-        <div class="p-4">
-            <input type="text" class="border p-2 mr-2" placeholder="Nome" disabled />
-            <button class="btn btn-disabled" disabled>Disabilitato</button>
-        </div>
-
-        <!-- Focus & active -->
-        <div class="p-4">
-            <input type="text" class="border p-2 focus:ring-2 focus:ring-blue-500 active:border-blue-700"
-                placeholder="Focus me" />
-        </div>
-
-        <!-- Hover -->
-        <div class="p-4 flex gap-4">
-            <button class="btn hover:bg-blue-700">Hover blu</button>
-            <button class="btn hover:bg-red-700">Hover rosso</button>
-        </div>
-
-        <!-- Colori di testo -->
-        <div class="p-4">
-            <h1 class="text-2xl text-primary font-bold">Titolo principale</h1>
-            <p class="text-secondary">Paragrafo in color secondary</p>
-            <a href="#" class="text-blue-600 underline">Link</a>
-        </div>
-
-        <!-- Sfondo e bordo -->
-        <div class="p-4">
-            <div class="bg-customGreen border border-primary p-4 rounded text-white">Box con sfondo personalizzato</div>
-        </div>
-
-        <!-- Container e margini -->
-        <div class="container mx-auto p-8 bg-gray-50 rounded shadow">
-            <h2 class="text-xl font-bold mb-2">Contenuto centrato</h2>
-            <p class="leading-relaxed text-gray-700">Container centrale con margini e padding per posizionare correttamente il contenuto all'interno.</p>
-        </div>
-
-        <!-- Stili di testo -->
-        <div class="p-4">
-            <h1 class="text-3xl font-bold mb-2">Titolo</h1>
-            <p class="text-base leading-relaxed">Paragrafo con text-base & leading-relaxed.</p>
-            <ul class="list-disc pl-5">
-                <li>Elemento uno</li>
-                <li>Elemento due</li>
-            </ul>
-        </div>
-
-        <!-- Script per dark mode toggle -->
-        <script>
-            const toggleDarkMode = () => {
-                document.body.classList.toggle("dark");
-                document.querySelector("#darkModeStatus").innerHTML = document.body.classList.contains("dark") ? "Active" : "Inactive";
-            };
-            document.querySelector("#darkModeToggle").addEventListener('click', toggleDarkMode);
-        </script>
-
-    </body>
+</body>
 
 </html>
