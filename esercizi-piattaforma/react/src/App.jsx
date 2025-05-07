@@ -9,14 +9,6 @@ import './index.css';
 const App = () => {
   return (
     <>
-      <Counter />
-      <TextInput />
-      <Form />
-      <FruitsList />
-      <Card>
-        <h3>Title</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, tempora numquam magni qui commodi laboriosam officiis nam illo, id quia, iure vero eveniet architecto et perspiciatis! Quos quae vitae labore.</p>
-      </Card>
       <ProductList />
     </>
   );

@@ -1,16 +1,29 @@
-import React from 'react'
-import { useFetch } from '../hooks/useFetch';
-
-const API_URL = "https://dummyjson.com/products";
+import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { useFilteredProducts } from '../hooks/useFilteredProducts';
+import ProductCard from './ProductCard';
+import { useProductContext } from '../providers/ProductProvider';
 
 function ProductList() {
-    const {
-        data: products,
-        loading: loadingProducts,
-        error: errorProducts,
-    } = useFetch(API_URL);
+    const inputRef = useRef(null);
+    const [query, setQuery] = useState('');
+    const { products, loading, error } = useProductContext();
 
-    if (loadingProducts) {
+    const filteredProducts = useFilteredProducts(products, query);
+    const isSearching = query.length > 0;
+
+    const handleInput = useCallback((e) => {
+        setQuery(e.target.value);
+    }, [setQuery]);
+
+    useEffect(() => {
+        if (!loading) {
+          setTimeout(() => {
+            inputRef.current?.focus();
+          }, 100);
+        }
+      }, [loading]);
+
+    if (loading) {
         return (
             <div className="flex justify-center items-center min-h-screen">
                 <p>Loading products...</p>
@@ -18,15 +31,15 @@ function ProductList() {
         );
     }
 
-    if (errorProducts) {
+    if (error) {
         return (
             <div className="flex justify-center items-center min-h-screen">
-                <p>Error: {errorProducts.message || "Unknown error"}</p>
+                <p>Error: {error.message || "Unknown error"}</p>
             </div>
         );
     }
 
-    if (!products || !products.products?.length) {
+    if (!products?.length) {
         return (
             <div className="flex justify-center items-center min-h-screen">
                 <p>No products found.</p>
@@ -35,58 +48,25 @@ function ProductList() {
     }
 
     return (
-        <div className="bg-gray-100 flex justify-center">
-            <div className="min-h-screen p-6 max-w-7xl w-full">
+        <div className="bg-gray-100 w-full flex flex-col justify-center">
+            <div className="p-4 flex flex-col max-w-7xl mx-auto">
                 <h1 className="text-3xl font-bold mb-6 text-center">Product List</h1>
+                <div className="flex justify-end">
+                    <input
+                        ref={inputRef}
+                        type="text"
+                        placeholder="Search..."
+                        value={query}
+                        onChange={handleInput}
+                        className="pl-4 bg-white pr-11 py-3 rounded-full border border-gray-300 text-xs placeholder:text-gray-300 text-text w-64"
+                    />
+                </div>
+            </div>
+
+            <div className="p-6 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {products.products.map((product) => (
-                        <div
-                            key={product.id}
-                            className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-200 ease-in-out"
-                        >
-                            <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                {product.title}
-                            </h2>
-                            <p className="text-sm text-gray-600 line-clamp-3 mb-3">
-                                {product.description}
-                            </p>
-                            <div className="mb-2 flex items-center gap-2">
-                                <span className="text-lg font-bold text-green-600">
-                                    ${product.price.toFixed(2)}
-                                </span>
-                                {product.discountPercentage > 0 && (
-                                    <span className="text-sm text-red-500">
-                                        -{product.discountPercentage.toFixed(0)}% off
-                                    </span>
-                                )}
-                            </div>
-                            <div className="flex items-center text-sm mb-2">
-                                <span className="text-yellow-500">
-                                    {"⭐".repeat(Math.round(product.rating || 0))}
-                                </span>
-                                <span className="text-gray-700 ml-2">
-                                    ({product.rating?.toFixed(1) || "0.0"}/5)
-                                </span>
-                            </div>
-                            <div
-                                className={`text-xs font-medium px-2 py-1 rounded-full inline-block ${product.stock <= 5
-                                        ? "bg-red-100 text-red-700"
-                                        : "bg-green-100 text-green-700"
-                                    }`}
-                            >
-                                {product.stock <= 5 ? "Low Stock" : "In Stock"}
-                            </div>
-                            <div className="mt-3 text-xs text-gray-500">
-                                Brand:{" "}
-                                <span className="font-medium text-gray-700">
-                                    {product.brand}
-                                </span>{" "}
-                                | Category:{" "}
-                                <span className="font-medium text-gray-700">
-                                    {product.category}
-                                </span>
-                            </div>
-                        </div>
+                    {(isSearching ? filteredProducts : products).map(product => (
+                        <ProductCard key={product.id} product={product} />
                     ))}
                 </div>
             </div>
