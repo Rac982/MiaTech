@@ -1,27 +1,30 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useFilteredProducts } from '../hooks/useFilteredProducts';
 import ProductCard from './ProductCard';
 import { useProductContext } from '../providers/ProductProvider';
 
 function ProductList() {
     const inputRef = useRef(null);
-    const [query, setQuery] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('q') || '';
     const { products, loading, error } = useProductContext();
 
     const filteredProducts = useFilteredProducts(products, query);
     const isSearching = query.length > 0;
 
     const handleInput = useCallback((e) => {
-        setQuery(e.target.value);
-    }, [setQuery]);
+        const newQuery = e.target.value;
+        setSearchParams(newQuery ? { q: newQuery } : {});
+    }, [setSearchParams]);
 
     useEffect(() => {
         if (!loading) {
-          setTimeout(() => {
-            inputRef.current?.focus();
-          }, 100);
+            setTimeout(() => {
+                inputRef.current?.focus();
+            }, 100);
         }
-      }, [loading]);
+    }, [loading]);
 
     if (loading) {
         return (
@@ -50,7 +53,7 @@ function ProductList() {
     return (
         <div className="bg-gray-100 w-full flex flex-col justify-center">
             <div className="p-4 flex flex-col max-w-7xl mx-auto">
-                <h1 className="text-3xl font-bold mb-6 text-center">Product List</h1>
+                <h1 className="py-6 text-3xl font-bold mb-6 text-center">Product List</h1>
                 <div className="flex justify-end">
                     <input
                         ref={inputRef}
@@ -63,7 +66,7 @@ function ProductList() {
                 </div>
             </div>
 
-            <div className="p-6 max-w-7xl mx-auto">
+            <div className="py-6 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {(isSearching ? filteredProducts : products).map(product => (
                         <ProductCard key={product.id} product={product} />

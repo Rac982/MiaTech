@@ -3,13 +3,24 @@ import TextInput from './components/TextInput';
 import Form from './components/Form';
 import FruitsList from './components/FruitsList';
 import Card from './components/Card';
+import { Route, Routes } from 'react-router-dom';
+
 import ProductList from './components/ProductList';
-import './index.css';
+import About from './pages/About';
+import CustomLayout from './layouts/CustomLayout';
+import ProductDetail from './pages/ProductDetail';
+
 
 const App = () => {
   return (
     <>
-      <ProductList />
+      <Routes>
+        <Route path="/" element={<CustomLayout />}>
+          <Route path="" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
     </>
   );
 };

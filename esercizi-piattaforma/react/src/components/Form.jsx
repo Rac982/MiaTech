@@ -33,13 +33,13 @@ const Form = () => {
     <div>
       <h2>Form</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="textInput" placeholder="Text Input" value={form.textInput} onInput={handleInput} />
-        <input type="text" name="username" placeholder="Username" value={form.username} onInput={handleInput} />
-        <input type="password" name="password" placeholder="Password" value={form.password} onInput={handleInput} />
-        <input type="text" ref={inputRef} name="uncontrolledInput" placeholder="Uncontrolled Input" />
+        <input className="m-1 p-1" type="text" name="textInput" placeholder="Text Input" value={form.textInput} onInput={handleInput} />
+        <input className="m-1 p-1" type="text" name="username" placeholder="Username" value={form.username} onInput={handleInput} />
+        <input className="m-1 p-1" type="password" name="password" placeholder="Password" value={form.password} onInput={handleInput} />
+        <input className="m-1 p-1" type="text" ref={inputRef} name="uncontrolledInput" placeholder="Uncontrolled Input" />
 
-        <button className="button" type="submit" onClick={submitAlert}>Login</button>
-        <button className="button" type="button" onClick={uncontrolledInputAlert}>Ref Button</button>
+        <button className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition" type="submit" onClick={submitAlert}>Login</button>
+        <button className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition" type="button" onClick={uncontrolledInputAlert}>Ref Button</button>
       </form>
     </div>
   );
