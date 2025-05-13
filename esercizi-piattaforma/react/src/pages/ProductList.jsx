@@ -1,14 +1,15 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useFilteredProducts } from '../hooks/useFilteredProducts';
-import ProductCard from './ProductCard';
+import ProductCard from '../components/ProductCard'
 import { useProductContext } from '../providers/ProductProvider';
 
 function ProductList() {
+    const { products, loading, error } = useProductContext();
     const inputRef = useRef(null);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('q') || '';
-    const { products, loading, error } = useProductContext();
+
 
     const filteredProducts = useFilteredProducts(products, query);
     const isSearching = query.length > 0;

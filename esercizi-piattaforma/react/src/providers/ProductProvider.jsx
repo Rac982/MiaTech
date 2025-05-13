@@ -1,21 +1,19 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import React, { createContext, useContext, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts } from "../store/slices/dataSlice";
 
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const API_URL = "https://dummyjson.com/products";
-  const { data, loading, error } = useFetch(API_URL);
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.data);
 
   useEffect(() => {
-    if (data?.products) {
-      setProducts(data.products);
-    }
-  }, [data]);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
-    <ProductContext.Provider value={{ products, loading, error, setProducts }}>
+    <ProductContext.Provider value={{ products, loading, error }}>
       {children}
     </ProductContext.Provider>
   );

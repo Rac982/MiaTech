@@ -5,7 +5,7 @@ import FruitsList from './components/FruitsList';
 import Card from './components/Card';
 import { Route, Routes } from 'react-router-dom';
 
-import ProductList from './components/ProductList';
+import ProductList from './pages/ProductList';
 import About from './pages/About';
 import CustomLayout from './layouts/CustomLayout';
 import ProductDetail from './pages/ProductDetail';
