@@ -32,7 +32,9 @@ export enum ProductStatus {
 }
 
 // Tipo mappato PartialProduct che rende tutte le proprietà dell'interfaccia Product opzionali
-export type PartialProduct = Partial<Product>
+export type PartialProduct = {
+    [K in keyof Product]?: Product[K]
+}
 
 // Tipo ProductRecord che mappa number (id del product)
 export type ProductRecord = Record<number, Product>
